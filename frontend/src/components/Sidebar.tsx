@@ -11,7 +11,7 @@ export default function Sidebar() {
         </h1>
       </div>
       
-      <nav className="flex-1 px-4 space-y-2">
+      <nav className="flex-1 px-5 space-y-2">
         <Link href="/" className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-[#1e212b] transition-colors text-sm text-gray-300 hover:text-white">
           <LayoutDashboard size={18} />
           Dashboard
