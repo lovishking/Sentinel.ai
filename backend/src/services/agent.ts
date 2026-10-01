@@ -88,7 +88,7 @@ export async function runAgentWorkflow(incidentId: string) {
       data: { status: "resolving" }
     });
   } catch (error) {
-    console.error("Agent workflow failed:", error);
+    console.error("[Agent Error] Workflow failed:", error);
     await prisma.agentRun.update({
       where: { id: run.id },
       data: { status: "failed", endedAt: new Date() }
