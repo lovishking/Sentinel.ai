@@ -101,5 +101,8 @@ Visit `http://localhost:3000` to access the Sentinel AI dashboard.
 3. **Investigation View**: Click on an incident to watch the LangGraph workflow in real-time as the agents analyze the payload, determine the root cause, and formulate a code patch.
 4. **Approve Patch**: Review the AI-generated patch and click "Approve & Merge" to simulate pushing to GitHub.
 
+## 🤝 Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
 ## 📄 License
 This project is licensed under the MIT License.
