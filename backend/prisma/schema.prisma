@@ -9,6 +9,7 @@ datasource db {
   extensions = [vector]
 }
 
+/// Represents a single production incident
 model Incident {
   id          String   @id @default(uuid())
   title       String
