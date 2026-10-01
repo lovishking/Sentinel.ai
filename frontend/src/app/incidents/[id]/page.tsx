@@ -34,7 +34,7 @@ export default function IncidentDetails() {
 
       <div className="glass-panel p-6 rounded-xl flex items-start justify-between border-t-4 border-red-500">
         <div>
-          <div className="flex items-center gap-3 mb-2">
+          <div className="flex items-center gap-4 mb-3">
             <h1 className="text-2xl font-bold">{incident.title}</h1>
             <span className="px-2 py-1 text-xs font-semibold rounded-full bg-red-500/20 text-red-400">
               {incident.severity.toUpperCase()}
