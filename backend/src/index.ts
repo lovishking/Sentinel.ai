@@ -17,6 +17,7 @@ app.use(helmet());
 app.use(morgan('dev'));
 app.use(express.json());
 
+// Healthcheck endpoint for load balancers
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
