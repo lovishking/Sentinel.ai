@@ -10,6 +10,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import { requestLogger } from './middleware/requestLogger';
+import { errorHandler } from './middleware/errorHandler';
 import { PrismaClient } from '@prisma/client';
 
 dotenv.config();
@@ -33,6 +34,9 @@ app.get('/api/health', (req, res) => {
 // Routes will be imported here
 import incidentRoutes from './routes/incidents';
 app.use('/api/incidents', incidentRoutes);
+
+// Centralized error handling
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
