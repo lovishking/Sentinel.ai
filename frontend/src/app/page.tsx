@@ -50,7 +50,7 @@ export default function Dashboard() {
         <button
           onClick={handleSimulate}
           disabled={simMutation.isPending}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg font-medium transition-colors disabled:opacity-50 flex items-center gap-2 cursor-pointer shadow-lg shadow-indigo-500/20"
+          className="bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 focus:ring-offset-[#0a0a0f] text-white px-4 py-2 rounded-lg font-medium transition-all disabled:opacity-50 flex items-center gap-2 cursor-pointer shadow-lg shadow-indigo-500/20" aria-label="Simulate production incident alert"
         >
           {simMutation.isPending ? 'Simulating...' : 'Simulate Incident'}
         </button>
