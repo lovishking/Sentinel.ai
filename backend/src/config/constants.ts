@@ -1,0 +1,9 @@
+export const TIMEOUTS = {
+  AGENT_WORKFLOW_MS: 60000,
+  DATABASE_QUERY_MS: 5000,
+  LLM_REQUEST_MS: 30000,
+};
+
+export const RETRY_LIMITS = {
+  AGENT_STEP_RETRIES: 3,
+};
