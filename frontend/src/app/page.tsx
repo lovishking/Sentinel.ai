@@ -7,6 +7,7 @@ import { Activity, ShieldAlert, CheckCircle2, Clock } from 'lucide-react';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
 import MetricCard from '@/components/MetricCard';
+import EmptyState from '@/components/EmptyState';
 
 export default function Dashboard() {
   const { data: incidents = [], refetch } = useQuery({
@@ -86,7 +87,12 @@ export default function Dashboard() {
             <tbody>
               {incidents.length === 0 && (
                 <tr>
-                  <td colSpan={5} className="p-8 text-center text-gray-500">No active incidents. Systems operating normally.</td>
+                  <td colSpan={5}>
+                    <EmptyState
+                      title="All systems operational"
+                      description="No active incidents reported. The autonomous responder is listening for alerts."
+                    />
+                  </td>
                 </tr>
               )}
               {incidents.map((incident: any) => (
