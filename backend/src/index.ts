@@ -1,3 +1,9 @@
+/**
+ * @file index.ts
+ * @description Primary entry point for Sentinel AI backend API server.
+ * Handles Express server configuration, middleware initialization,
+ * database connection via Prisma, and graceful service lifecycle management.
+ */
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
