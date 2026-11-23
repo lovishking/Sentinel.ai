@@ -7,8 +7,11 @@ import Sidebar from '@/components/Sidebar';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Sentinel AI | Autonomous Incident Resolution',
-  description: 'AI-powered production incident resolution platform',
+  title: 'Sentinel AI | Autonomous Incident Resolution Platform',
+  description: 'Production-grade autonomous AI incident responder powered by LangGraph, Gemini, and RAG.',
+  keywords: ['AI incident responder', 'site reliability engineering', 'LangGraph', 'Next.js', 'autonomous DevOps'],
+  authors: [{ name: 'Sentinel AI Engineering' }],
+  themeColor: '#0a0a0f',
 };
 
 export default function RootLayout({
