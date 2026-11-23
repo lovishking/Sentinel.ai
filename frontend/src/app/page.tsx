@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { Activity, ShieldAlert, CheckCircle2, Clock } from 'lucide-react';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
+import MetricCard from '@/components/MetricCard';
 
 export default function Dashboard() {
   const { data: incidents = [], refetch } = useQuery({
@@ -55,24 +56,17 @@ export default function Dashboard() {
         </button>
       </div>
 
+      {/* Metrics Summary Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
         {metrics.map((m, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
-            className="glass-panel p-6 rounded-xl flex items-start justify-between border-l-4"
-            style={{ borderLeftColor: m.color.replace('text-', '') }} // Simple visual cue
-          >
-            <div>
-              <p className="text-sm text-gray-400 font-medium">{m.label}</p>
-              <p className="text-3xl font-bold mt-2">{m.value}</p>
-            </div>
-            <div className={`p-3 rounded-lg bg-[#14161f] ${m.color}`}>
-              <m.icon size={24} />
-            </div>
-          </motion.div>
+          <MetricCard
+            key={m.label}
+            label={m.label}
+            value={m.value}
+            icon={m.icon}
+            color={m.color}
+            index={i}
+          />
         ))}
       </div>
 
