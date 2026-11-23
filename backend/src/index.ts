@@ -35,3 +35,19 @@ app.use('/api/incidents', incidentRoutes);
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+// Graceful termination handler
+const handleShutdown = async (signal: string) => {
+  console.log(`Received ${signal}. Terminating Prisma client and shutting down...`);
+  try {
+    await prisma.$disconnect();
+    console.log('Database connection closed cleanly.');
+  } catch (err) {
+    console.error('Error disconnecting database:', err);
+  } finally {
+    process.exit(0);
+  }
+};
+
+process.on('SIGINT', () => handleShutdown('SIGINT'));
+process.on('SIGTERM', () => handleShutdown('SIGTERM'));
