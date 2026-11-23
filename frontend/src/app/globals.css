@@ -42,3 +42,19 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #4a5568;
 }
+
+/* Shimmer loading animation helper */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #14161f 25%, #1e212b 50%, #14161f 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
