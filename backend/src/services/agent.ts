@@ -16,6 +16,8 @@ const AgentStateAnnotation = Annotation.Root({
   status: Annotation<string>(),
 });
 
+// Primary LLM client: Google Gemini 1.5 Pro
+// Note: Consider adjusting maxRetries and timeout for production resilience
 const llm = new ChatGoogleGenerativeAI({
   model: "gemini-1.5-pro",
   apiKey: process.env.GEMINI_API_KEY || "dummy",
