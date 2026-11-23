@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Incident } from '@/types/incident';
 
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000/api',
@@ -7,12 +8,12 @@ const api = axios.create({
 /**
  * Fetches all incidents
  */
-export const getIncidents = async () => {
+export const getIncidents = async (): Promise<Incident[]> => {
   const { data } = await api.get('/incidents');
   return data;
 };
 
-export const getIncident = async (id: string) => {
+export const getIncident = async (id: string): Promise<Incident> => {
   const { data } = await api.get(`/incidents/${id}`);
   return data;
 };
