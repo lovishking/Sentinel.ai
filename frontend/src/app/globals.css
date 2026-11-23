@@ -58,3 +58,12 @@
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
 }
+
+/* Neon accent glow utilities */
+.glow-indigo {
+  box-shadow: 0 0 20px -3px rgba(99, 102, 241, 0.3);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 20px -3px rgba(16, 185, 129, 0.3);
+}
