@@ -1,3 +1,7 @@
+# ===========================================
+# Sentinel AI - Local Infrastructure Stack
+# Provides PostgreSQL (pgvector) and Redis
+# ===========================================
 version: '3.8'
 
 services:
