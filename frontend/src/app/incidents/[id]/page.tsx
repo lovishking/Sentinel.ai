@@ -4,7 +4,8 @@ import { useQuery } from '@tanstack/react-query';
 import { getIncident } from '@/lib/api';
 import { useParams } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { AlertTriangle, Terminal, Code2, Play, GitPullRequest, CheckCircle } from 'lucide-react';
+import { AlertTriangle, Terminal, Code2, Play, GitPullRequest, CheckCircle, Copy, Check } from 'lucide-react';
+import toast from 'react-hot-toast';
 import Link from 'next/link';
 
 export default function IncidentDetails() {
@@ -92,9 +93,23 @@ export default function IncidentDetails() {
 
         {/* Right Column: Code Patch & Details */}
         <div className="lg:col-span-2 space-y-6">
-          <h2 className="text-xl font-semibold flex items-center gap-2">
-            <Code2 className="text-purple-400" /> Proposed Fix
-          </h2>
+          <div className="flex justify-between items-center">
+            <h2 className="text-xl font-semibold flex items-center gap-2">
+              <Code2 className="text-purple-400" /> Proposed Fix
+            </h2>
+            {activeFix?.patch && (
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(activeFix.patch || '');
+                  toast.success('Patch copied to clipboard');
+                }}
+                className="text-xs bg-[#1e212b] hover:bg-[#282d3b] text-gray-300 px-2.5 py-1.5 rounded-md flex items-center gap-1.5 transition-colors border border-gray-700/50"
+                aria-label="Copy code patch"
+              >
+                <Copy size={13} /> Copy Patch
+              </button>
+            )}
+          </div>
 
           <div className="glass-panel rounded-xl overflow-hidden flex flex-col h-[500px]">
             {activeFix ? (
