@@ -35,6 +35,7 @@ model Evidence {
   incident   Incident @relation(fields: [incidentId], references: [id], onDelete: Cascade)
 }
 
+/// Tracks execution history of an automated LangGraph AI responder run
 model AgentRun {
   id         String   @id @default(uuid())
   incidentId String
@@ -46,6 +47,7 @@ model AgentRun {
   incident   Incident @relation(fields: [incidentId], references: [id], onDelete: Cascade)
 }
 
+/// Stores generated code patches and pull request statuses for incident remediation
 model Fix {
   id          String   @id @default(uuid())
   incidentId  String
