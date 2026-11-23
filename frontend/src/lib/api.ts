@@ -23,4 +23,21 @@ export const simulateIncident = async (payload: { title: string; description: st
   return data;
 };
 
+
+/**
+ * Updates the status of an active incident
+ */
+export const updateIncidentStatus = async (id: string, status: string): Promise<Incident> => {
+  const { data } = await api.patch(`/incidents/${id}/status`, { status });
+  return data;
+};
+
+/**
+ * Dismisses or deletes an incident record
+ */
+export const deleteIncident = async (id: string): Promise<{ success: boolean }> => {
+  const { data } = await api.delete(`/incidents/${id}`);
+  return data;
+};
+
 export default api;
