@@ -60,7 +60,7 @@ export default function IncidentDetails() {
           </h2>
           
           <div className="glass-panel rounded-xl p-6 relative">
-            <div className="absolute left-[31px] top-10 bottom-10 w-0.5 bg-[#2d3748]"></div>
+            <div className="absolute left-[31px] top-10 bottom-10 w-0.5 bg-gradient-to-b from-green-500/50 via-blue-500/50 to-gray-700/50"></div>
             
             <div className="space-y-8 relative">
               {[
