@@ -61,6 +61,7 @@ model Fix {
   incident    Incident @relation(fields: [incidentId], references: [id], onDelete: Cascade)
 }
 
+/// Stores vector embeddings of repository source files for RAG semantic search
 model CodeContext {
   id        String   @id @default(uuid())
   filePath  String
@@ -70,6 +71,7 @@ model CodeContext {
   updatedAt DateTime @updatedAt
 }
 
+/// Preserves historical incident post-mortems and resolutions for retrieval during new alerts
 model HistoricalIncident {
   id          String   @id @default(uuid())
   title       String
