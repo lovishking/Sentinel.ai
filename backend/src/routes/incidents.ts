@@ -34,7 +34,10 @@ router.post('/simulate', async (req, res) => {
 
     res.status(201).json({ incident, message: 'Incident created and investigation started' });
   } catch (error) {
-    res.status(400).json({ error: 'Invalid payload' });
+    if (error instanceof z.ZodError) {
+      return res.status(400).json({ error: 'Validation failed', issues: error.issues });
+    }
+    res.status(400).json({ error: 'Invalid payload format' });
   }
 });
 
