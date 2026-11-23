@@ -38,7 +38,10 @@ router.post('/simulate', async (req, res) => {
   }
 });
 
-// Get all incidents
+/**
+ * GET /api/incidents
+ * Retrieves all registered incidents in reverse chronological order, including associated runs and fixes.
+ */
 router.get('/', async (req, res) => {
   const incidents = await prisma.incident.findMany({
     orderBy: { createdAt: 'desc' },
@@ -47,7 +50,10 @@ router.get('/', async (req, res) => {
   res.json(incidents);
 });
 
-// Get incident details
+/**
+ * GET /api/incidents/:id
+ * Fetches detailed incident record by UUID with attached forensic evidence and execution history.
+ */
 router.get('/:id', async (req, res) => {
   const incident = await prisma.incident.findUnique({
     where: { id: req.params.id },
