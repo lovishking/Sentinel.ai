@@ -1,6 +1,7 @@
 import { StateGraph, START, END, MemorySaver, Annotation } from "@langchain/langgraph";
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import { prisma } from "../index";
+import { logger } from "../utils/logger";
 
 /**
  * AgentStateAnnotation defines the state schema maintained across the LangGraph investigation graph.
@@ -101,7 +102,7 @@ export async function runAgentWorkflow(incidentId: string) {
       data: { status: "resolving" }
     });
   } catch (error) {
-    console.error("[Agent Error] Workflow failed:", error);
+    logger.error("[Agent Workflow] Execution encountered an unhandled exception:", error);
     await prisma.agentRun.update({
       where: { id: run.id },
       data: { status: "failed", endedAt: new Date() }
