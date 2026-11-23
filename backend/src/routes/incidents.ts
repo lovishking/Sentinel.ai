@@ -5,7 +5,12 @@ import { runAgentWorkflow } from '../services/agent';
 
 const router = Router();
 
-// Simulate or create a new incident
+/**
+ * POST /api/incidents/simulate
+ * Simulates an incoming production incident payload and triggers the background AI agent workflow.
+ * @route POST /api/incidents/simulate
+ * @returns {object} 201 - Created incident details and confirmation message
+ */
 router.post('/simulate', async (req, res) => {
   const schema = z.object({
     title: z.string(),
