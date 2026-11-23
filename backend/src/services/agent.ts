@@ -2,6 +2,10 @@ import { StateGraph, START, END, MemorySaver, Annotation } from "@langchain/lang
 import { ChatGoogleGenerativeAI } from "@langchain/google-genai";
 import { prisma } from "../index";
 
+/**
+ * AgentStateAnnotation defines the state schema maintained across the LangGraph investigation graph.
+ * Every node reads and updates a subset of these properties during graph traversal.
+ */
 const AgentStateAnnotation = Annotation.Root({
   incidentId: Annotation<string>(),
   context: Annotation<string>(),
