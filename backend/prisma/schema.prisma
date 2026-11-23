@@ -24,6 +24,7 @@ model Incident {
   fixes       Fix[]
 }
 
+/// Represents forensic evidence collected during incident triage (e.g., logs, metrics, traces)
 model Evidence {
   id         String   @id @default(uuid())
   incidentId String
