@@ -94,6 +94,16 @@ npm run dev
 
 Visit `http://localhost:3000` to access the Sentinel AI dashboard.
 
+
+## 📡 API Endpoints Reference
+
+| Method | Endpoint | Description |
+|---|---|---|
+| `GET` | `/api/health` | Health check and system uptime status |
+| `GET` | `/api/incidents` | Fetch all registered incidents with runs and fixes |
+| `GET` | `/api/incidents/:id` | Fetch detailed incident context and forensic records |
+| `POST` | `/api/incidents/simulate` | Simulate a production incident and trigger LangGraph agent |
+
 ## 💻 Usage
 
 1. **Dashboard Overview**: The main dashboard displays active incidents, critical alerts, and MTTR metrics.
