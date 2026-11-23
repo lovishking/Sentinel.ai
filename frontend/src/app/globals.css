@@ -75,3 +75,9 @@
     padding: 1rem;
   }
 }
+
+/* Subpixel typography smoothing */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
