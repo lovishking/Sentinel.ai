@@ -9,6 +9,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
+import { requestLogger } from './middleware/requestLogger';
 import { PrismaClient } from '@prisma/client';
 
 dotenv.config();
@@ -21,6 +22,7 @@ export const prisma = new PrismaClient();
 app.use(cors());
 app.use(helmet());
 app.use(morgan('dev'));
+app.use(requestLogger);
 app.use(express.json());
 
 // Healthcheck endpoint for load balancers
