@@ -71,6 +71,15 @@ const builder = new StateGraph(AgentStateAnnotation)
 
 export const graph = builder.compile({ checkpointer: new MemorySaver() });
 
+/**
+ * Executes the autonomous incident response workflow:
+ * 1. Initializes AgentRun record in database.
+ * 2. Compiles initial graph state and thread context.
+ * 3. Traverses investigation -> planning -> patch generation nodes.
+ * 4. Records completion or captures execution exceptions.
+ * 
+ * @param incidentId - Unique identifier of the incident to remediate
+ */
 export async function runAgentWorkflow(incidentId: string) {
   const run = await prisma.agentRun.create({
     data: { incidentId, status: "running" }
