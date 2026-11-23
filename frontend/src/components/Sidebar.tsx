@@ -1,7 +1,18 @@
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Activity, LayoutDashboard, Settings, AlertTriangle, GitPullRequest } from 'lucide-react';
 
 export default function Sidebar() {
+  const pathname = usePathname();
+
+  const getNavLinkClass = (href: string) => {
+    const isActive = pathname === href;
+    return `flex items-center gap-3 px-3 py-2 rounded-md transition-colors text-sm ${
+      isActive 
+        ? 'bg-indigo-600/20 text-indigo-400 font-medium border border-indigo-500/30' 
+        : 'hover:bg-[#1e212b] text-gray-300 hover:text-white'
+    }`;
+  };
   return (
     <div className="w-64 h-screen bg-[#14161f] border-r border-[#2d3748] flex flex-col">
       <div className="p-6">
@@ -12,7 +23,7 @@ export default function Sidebar() {
       </div>
       
       <nav className="flex-1 px-5 space-y-2">
-        <Link href="/" className="flex items-center gap-3 px-3 py-2 rounded-md hover:bg-[#1e212b] transition-colors text-sm text-gray-300 hover:text-white">
+        <Link href="/" className={getNavLinkClass("/")}>
           <LayoutDashboard size={18} />
           Dashboard
         </Link>
